@@ -1,4 +1,11 @@
 def combinations(rangeMin, rangeMax, char_Set):
+    """
+    get a combinations of a charset in a specific range
+    :param rangeMin: start
+    :param rangeMax: endpoint
+    :param char_Set: set of characters
+    :return: returns the combinations in an array - large quantities should be split up to not over fill the storage
+    """
     possibleComb = []
     for i in range(rangeMin, rangeMax):
         possibleComb.append(convert(i, char_Set))
@@ -7,6 +14,12 @@ def combinations(rangeMin, rangeMax, char_Set):
 
 
 def findExponent(num, len):
+    """
+    finds the highest exponent to divide the string
+    :param num:
+    :param len:
+    :return:
+    """
     exponent = 0
     run = True
 
@@ -22,7 +35,13 @@ def findExponent(num, len):
     return exponent
 
 def convert(num, char):
-    #char = 'abcdefghijklmnopqrstuvwxyz'
+    """
+    convters any number to with a charset to a string -
+    useful to get all possible combinations of something
+    :param num: integer
+    :param char: a string of characters
+    :return:
+    """
     highestExponent = findExponent(num, len(char))
     exponent = highestExponent
     text = ""
@@ -35,8 +54,12 @@ def convert(num, char):
     return text
 
 if __name__ == '__main__':
-    char_set = "01"
+    char_set = "abcdefghijklmnopqrstuvwxyz"
     num = 50
     convert(num, char_set)
 
     print(combinations(0, 9999, char_set))
+
+####
+# fixes - the first z has to go some how
+###
