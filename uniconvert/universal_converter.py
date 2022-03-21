@@ -53,13 +53,42 @@ def convert(num, char):
         exponent -= 1
     return text
 
+def numCombine(num ,char_set):
+    """
+    takes a num as the length the combinations has
+
+    e.g.
+    num = 3
+
+    aaa
+    aab
+    aac
+    ...
+    ffk
+    ...
+    zzz
+    
+    :param num: integer
+    :param char_set: set of characters in a string
+    :return:
+    """
+    min = len(char_set) ** (num - 1)
+    max = len(char_set) ** num
+
+    combSet = combinations(min, max, char_set)
+
+    return  combSet
+
 if __name__ == '__main__':
     char_set = "abcdefghijklmnopqrstuvwxyz"
     num = 50
-    convert(num, char_set)
+    #convert(num, char_set)
 
-    print(combinations(0, 9999, char_set))
+    #print(combinations(0, 9999, char_set))
+
+    print(numCombine(2, char_set))
 
 ####
 # fixes - the first z has to go some how
+# enter specific num of char - calc what nums these are...
 ###
